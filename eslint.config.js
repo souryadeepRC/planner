@@ -9,5 +9,6 @@ export default [
       "no-unused-vars": "warn",
     },
     files: ["**/*.ts", "**/*.tsx", "**/*.js"],
+    ignores: ["dist/*"],
   },
 ];
