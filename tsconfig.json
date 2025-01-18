@@ -17,6 +17,11 @@
       "src/*": ["src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "webpack.config.cjs"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "declaration.d.ts",
+    "webpack.config.cjs"
+  ],
   "exclude": ["node_modules"]
 }

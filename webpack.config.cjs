@@ -23,14 +23,26 @@ module.exports = {
         test: /\.module\.scss$/,
         use: [
           "style-loader",
-          "sass-loader",
           {
             loader: "css-loader",
             options: {
-              module: true,
+              modules: true,
+            },
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sassOptions: {
+                loadPaths: [path.resolve(__dirname, "src")],
+              },
             },
           },
         ],
+      },
+      {
+        test: /\.scss$/,
+        exclude: /\.module\.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
     ],
   },
@@ -44,7 +56,7 @@ module.exports = {
     static: path.join(__dirname, "dist"),
     compress: true,
     port: process.env.PORTAL_PORT || 3000,
-    open: true,
+    open: false,
   },
   plugins: [
     new HtmlWebpackPlugin({ template: "./public/index.html" }),
